@@ -82,7 +82,12 @@ namespace Studio23rd.Secrets{
 
 
 
-		#region Button message  >>>>>>>>  Reset & Confirm
+
+
+		#endregion
+
+		#region Button message  >>>>>>>>  Reset, Confirm
+
 		public void ResetRecordProcess ()
 		{
 			OverlayCanvas.Block = true;
@@ -104,9 +109,8 @@ namespace Studio23rd.Secrets{
 		{
 			SecretData.SaveKeyChain (keyChain);
 			PlayerPrefs.SetInt ("Dirty", 1);
-			EnterMainApp ();
+			StartMainApp ();
 		}
-		#endregion
 
 		#endregion
 
@@ -119,7 +123,6 @@ namespace Studio23rd.Secrets{
 			m_ConfirmButton.interactable = false;
 			m_ResetButton.image.material.SetFloat ("_AlphaVanishGate", 1.3f);
 			m_ConfirmButton.image.material.SetFloat ("_AlphaVanishGate", 1.3f);
-			// TODO ----- Load keychain
 			SecretData.LoadKeyChain (out keyChain);
 			sequence = new List<KeyboardUtils.KeyValue> (keyChain.keyChain);
 
@@ -143,7 +146,7 @@ namespace Studio23rd.Secrets{
 
 			if (sequence.Count == 0 && !locked)
 			{
-				EnterMainApp ();
+				StartMainApp ();
 				return;
 			}
 			keyChainIndicator ++;
@@ -151,11 +154,16 @@ namespace Studio23rd.Secrets{
 			{
 				// TODO ------- Out of length, then punish the user
 				Debug.Log ("Ran out of keys. Your will be PUNISHED!");
-				EnterMainApp ();
+				StartMainApp ();
 			}
 		}
 
-		void EnterMainApp ()
+
+		#endregion
+
+		#region Start Main App
+
+		void StartMainApp ()
 		{
 			OverlayCanvas.Instance.Show ().OnComplete (()=>{
 				m_Canvas.enabled = false;
@@ -163,6 +171,7 @@ namespace Studio23rd.Secrets{
 				OverlayCanvas.Instance.Hide ();
 			});
 		}
+
 		#endregion
 	}
 }

@@ -3,12 +3,12 @@ using System.Collections;
 using Studio23rd.Secrets.Data;
 using Studio23rd.Secrets.Files;
 
-namespace Studio23rd.Secrets.Case{
-	public class CaseControl : MonoBehaviour {
+namespace Studio23rd.Secrets.Core{
+	public class Bucket23Control : MonoBehaviour {
 
 		public FileControl m_FileControl;
 
-		public CaseAnimation m_AnimationComponent;
+		public Bucket23Animation m_AnimationComponent;
 
 		public ParticleSystem[] m_RelatedParticleEffects;
 

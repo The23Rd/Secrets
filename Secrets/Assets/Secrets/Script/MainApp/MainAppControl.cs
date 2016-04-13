@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-using Studio23rd.Secrets.Case;
+using Studio23rd.Secrets.Core;
 using Studio23rd.Secrets.Data;
 
 namespace Studio23rd.Secrets{
 	public class MainAppControl : MonoBehaviour {
 
-		public CaseControl m_CaseControl;
+		public Bucket23Control m_CaseControl;
 
 		[SerializeField] Canvas m_Canvas;
 
